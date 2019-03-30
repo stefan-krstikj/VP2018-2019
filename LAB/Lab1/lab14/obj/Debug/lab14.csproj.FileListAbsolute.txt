@@ -1,0 +1,14 @@
+C:\Users\Stefa\source\repos\Lab1\lab14\bin\Debug\lab14.exe.config
+C:\Users\Stefa\source\repos\Lab1\lab14\bin\Debug\lab14.exe
+C:\Users\Stefa\source\repos\Lab1\lab14\bin\Debug\lab14.pdb
+C:\Users\Stefa\source\repos\Lab1\lab14\obj\Debug\lab14.csproj.CoreCompileInputs.cache
+C:\Users\Stefa\source\repos\Lab1\lab14\obj\Debug\lab14.exe
+C:\Users\Stefa\source\repos\Lab1\lab14\obj\Debug\lab14.pdb
+C:\Users\Stefa\source\repos\Lab1\lab14\obj\Debug\lab14.csprojAssemblyReference.cache
+C:\Users\StefanASUS\source\repos\VP\LAB\Lab1\lab14\bin\Debug\lab14.exe.config
+C:\Users\StefanASUS\source\repos\VP\LAB\Lab1\lab14\bin\Debug\lab14.exe
+C:\Users\StefanASUS\source\repos\VP\LAB\Lab1\lab14\bin\Debug\lab14.pdb
+C:\Users\StefanASUS\source\repos\VP\LAB\Lab1\lab14\obj\Debug\lab14.csprojAssemblyReference.cache
+C:\Users\StefanASUS\source\repos\VP\LAB\Lab1\lab14\obj\Debug\lab14.csproj.CoreCompileInputs.cache
+C:\Users\StefanASUS\source\repos\VP\LAB\Lab1\lab14\obj\Debug\lab14.exe
+C:\Users\StefanASUS\source\repos\VP\LAB\Lab1\lab14\obj\Debug\lab14.pdb

@@ -1,0 +1,7 @@
+C:\Users\Stefa\source\repos\VP\LAB\Lab2GameOfLife\Lab2GameOfLife\bin\Debug\Lab2GameOfLife.exe.config
+C:\Users\Stefa\source\repos\VP\LAB\Lab2GameOfLife\Lab2GameOfLife\bin\Debug\Lab2GameOfLife.exe
+C:\Users\Stefa\source\repos\VP\LAB\Lab2GameOfLife\Lab2GameOfLife\bin\Debug\Lab2GameOfLife.pdb
+C:\Users\Stefa\source\repos\VP\LAB\Lab2GameOfLife\Lab2GameOfLife\obj\Debug\Lab2GameOfLife.csprojAssemblyReference.cache
+C:\Users\Stefa\source\repos\VP\LAB\Lab2GameOfLife\Lab2GameOfLife\obj\Debug\Lab2GameOfLife.csproj.CoreCompileInputs.cache
+C:\Users\Stefa\source\repos\VP\LAB\Lab2GameOfLife\Lab2GameOfLife\obj\Debug\Lab2GameOfLife.exe
+C:\Users\Stefa\source\repos\VP\LAB\Lab2GameOfLife\Lab2GameOfLife\obj\Debug\Lab2GameOfLife.pdb
