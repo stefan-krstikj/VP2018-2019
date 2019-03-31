@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -36,6 +37,10 @@
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.errName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errPrice = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errPrice)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -71,6 +76,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(243, 20);
             this.txtName.TabIndex = 3;
+            this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.txtName_Validating);
             // 
             // txtCategory
             // 
@@ -85,6 +91,7 @@
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(100, 20);
             this.txtPrice.TabIndex = 5;
+            this.txtPrice.Validating += new System.ComponentModel.CancelEventHandler(this.txtPrice_Validating);
             // 
             // btnCancel
             // 
@@ -95,6 +102,7 @@
             this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "Откажи";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnAdd
             // 
@@ -105,6 +113,14 @@
             this.btnAdd.Text = "Додади";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // errName
+            // 
+            this.errName.ContainerControl = this;
+            // 
+            // errPrice
+            // 
+            this.errPrice.ContainerControl = this;
             // 
             // AddProduct
             // 
@@ -123,6 +139,8 @@
             this.Controls.Add(this.label1);
             this.Name = "AddProduct";
             this.Text = "AddProduct";
+            ((System.ComponentModel.ISupportInitialize)(this.errName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errPrice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -138,5 +156,7 @@
         private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.ErrorProvider errName;
+        private System.Windows.Forms.ErrorProvider errPrice;
     }
 }

@@ -25,7 +25,42 @@ namespace PotrosuvackaKosnica
             float price = (float) Convert.ToDecimal(txtPrice.Text);
             Product product = new Product(name, category, price);
             this.addedProduct = product;
+            this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        private void txtName_Validating(object sender, CancelEventArgs e)
+        {
+            if(txtName.Text.Trim().Length == 0)
+            {
+                e.Cancel = true;
+                errName.SetError(txtName, "Внеси име!");
+            }
+            else
+            {
+                errName.SetError(txtName, null);
+            }
+        }
+
+        private void txtPrice_Validating(object sender, CancelEventArgs e)
+        {
+            int intVal;
+
+            if (!int.TryParse(txtPrice.Text, out intVal))
+            {
+                e.Cancel = true;
+                errPrice.SetError(txtPrice, "Внеси валидна цена!");
+            }
+            else
+            {
+                errPrice.SetError(txtPrice, null);
+            }
         }
     }
 }

@@ -37,15 +37,17 @@
             this.btnAddNewProduct = new System.Windows.Forms.Button();
             this.btnDeleteProduct = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtCena = new System.Windows.Forms.TextBox();
+            this.txtCateggory = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtTotal = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.nudAmount = new System.Windows.Forms.NumericUpDown();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAmount)).BeginInit();
             this.SuspendLayout();
             // 
             // boxProducts
@@ -55,6 +57,7 @@
             this.boxProducts.Name = "boxProducts";
             this.boxProducts.Size = new System.Drawing.Size(256, 394);
             this.boxProducts.TabIndex = 0;
+            this.boxProducts.SelectedIndexChanged += new System.EventHandler(this.boxProducts_SelectedIndexChanged);
             // 
             // boxCart
             // 
@@ -72,6 +75,7 @@
             this.btnEmptyProductList.TabIndex = 2;
             this.btnEmptyProductList.Text = "Испразни ја листата од продукти?";
             this.btnEmptyProductList.UseVisualStyleBackColor = true;
+            this.btnEmptyProductList.Click += new System.EventHandler(this.btnEmptyProductList_Click);
             // 
             // btnEmptyCartList
             // 
@@ -81,24 +85,27 @@
             this.btnEmptyCartList.TabIndex = 3;
             this.btnEmptyCartList.Text = "Испразни ја кошницата?";
             this.btnEmptyCartList.UseVisualStyleBackColor = true;
+            this.btnEmptyCartList.Click += new System.EventHandler(this.btnEmptyCartList_Click);
             // 
             // btnAddToCart
             // 
-            this.btnAddToCart.Location = new System.Drawing.Point(272, 209);
+            this.btnAddToCart.Location = new System.Drawing.Point(272, 215);
             this.btnAddToCart.Name = "btnAddToCart";
-            this.btnAddToCart.Size = new System.Drawing.Size(256, 23);
+            this.btnAddToCart.Size = new System.Drawing.Size(167, 23);
             this.btnAddToCart.TabIndex = 4;
             this.btnAddToCart.Text = "Додади во кошницата >>";
             this.btnAddToCart.UseVisualStyleBackColor = true;
+            this.btnAddToCart.Click += new System.EventHandler(this.btnAddToCart_Click);
             // 
             // btnDeleteFromCart
             // 
-            this.btnDeleteFromCart.Location = new System.Drawing.Point(274, 251);
+            this.btnDeleteFromCart.Location = new System.Drawing.Point(272, 255);
             this.btnDeleteFromCart.Name = "btnDeleteFromCart";
             this.btnDeleteFromCart.Size = new System.Drawing.Size(256, 23);
             this.btnDeleteFromCart.TabIndex = 5;
             this.btnDeleteFromCart.Text = "Избриши од кошница";
             this.btnDeleteFromCart.UseVisualStyleBackColor = true;
+            this.btnDeleteFromCart.Click += new System.EventHandler(this.btnDeleteFromCart_Click);
             // 
             // btnAddNewProduct
             // 
@@ -118,12 +125,13 @@
             this.btnDeleteProduct.TabIndex = 7;
             this.btnDeleteProduct.Text = "Избриши продукт";
             this.btnDeleteProduct.UseVisualStyleBackColor = true;
+            this.btnDeleteProduct.Click += new System.EventHandler(this.btnDeleteProduct_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtCena);
+            this.groupBox1.Controls.Add(this.txtCateggory);
+            this.groupBox1.Controls.Add(this.txtName);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
@@ -134,29 +142,29 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Детали за продуктот";
             // 
-            // textBox3
+            // txtCena
             // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(10, 127);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(74, 20);
-            this.textBox3.TabIndex = 5;
+            this.txtCena.Enabled = false;
+            this.txtCena.Location = new System.Drawing.Point(10, 127);
+            this.txtCena.Name = "txtCena";
+            this.txtCena.Size = new System.Drawing.Size(74, 20);
+            this.txtCena.TabIndex = 5;
             // 
-            // textBox2
+            // txtCateggory
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(10, 88);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(236, 20);
-            this.textBox2.TabIndex = 4;
+            this.txtCateggory.Enabled = false;
+            this.txtCateggory.Location = new System.Drawing.Point(10, 88);
+            this.txtCateggory.Name = "txtCateggory";
+            this.txtCateggory.Size = new System.Drawing.Size(236, 20);
+            this.txtCateggory.TabIndex = 4;
             // 
-            // textBox1
+            // txtName
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(10, 37);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(236, 20);
-            this.textBox1.TabIndex = 3;
+            this.txtName.Enabled = false;
+            this.txtName.Location = new System.Drawing.Point(10, 37);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(236, 20);
+            this.txtName.TabIndex = 3;
             // 
             // label3
             // 
@@ -185,13 +193,13 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Име:";
             // 
-            // textBox4
+            // txtTotal
             // 
-            this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(575, 386);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(213, 20);
-            this.textBox4.TabIndex = 6;
+            this.txtTotal.Enabled = false;
+            this.txtTotal.Location = new System.Drawing.Point(575, 386);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(213, 20);
+            this.txtTotal.TabIndex = 6;
             // 
             // label4
             // 
@@ -202,13 +210,31 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Вкупно:";
             // 
+            // nudAmount
+            // 
+            this.nudAmount.Location = new System.Drawing.Point(446, 217);
+            this.nudAmount.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudAmount.Name = "nudAmount";
+            this.nudAmount.Size = new System.Drawing.Size(82, 20);
+            this.nudAmount.TabIndex = 9;
+            this.nudAmount.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.nudAmount);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txtTotal);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnDeleteProduct);
             this.Controls.Add(this.btnAddNewProduct);
@@ -222,6 +248,7 @@
             this.Text = "Form1";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudAmount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -238,14 +265,15 @@
         private System.Windows.Forms.Button btnAddNewProduct;
         private System.Windows.Forms.Button btnDeleteProduct;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtCena;
+        private System.Windows.Forms.TextBox txtCateggory;
+        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.NumericUpDown nudAmount;
     }
 }
 
