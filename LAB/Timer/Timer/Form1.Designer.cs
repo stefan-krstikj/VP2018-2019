@@ -164,6 +164,7 @@
             this.btnHighScores.TabIndex = 12;
             this.btnHighScores.Text = "Најдобри Играчи";
             this.btnHighScores.UseVisualStyleBackColor = true;
+            this.btnHighScores.Click += new System.EventHandler(this.btnHighScores_Click);
             // 
             // btnClose
             // 
