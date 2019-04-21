@@ -16,8 +16,6 @@ namespace PotrosuvackaKosnica
         {
             InitializeComponent();
             this.Text = "Потрошувачка Кошница";
-            boxProducts.Items.Add(new Product("Produkt 1", "Cat 1", 150));
-            boxProducts.Items.Add(new Product("Produkt 2", "Cat 2", 250));
         }
 
         public void clearDetails()
@@ -78,6 +76,8 @@ namespace PotrosuvackaKosnica
         private void btnAddToCart_Click(object sender, EventArgs e)
         {
             decimal amount = nudAmount.Value;
+            if (boxProducts.SelectedIndex == -1)
+                return; 
             Product selectedProduct = (Product) boxProducts.SelectedItem;
             Boolean foundInList = false;
             foreach(ProductItem p in boxCart.Items)
@@ -158,7 +158,7 @@ namespace PotrosuvackaKosnica
         public override string ToString()
         {
             return String.Format("{0} {1:0.0}x {2:0.0} = {3:0.00}", Product.Name, Amount, Product.price, Product.price * (float)Amount);
-
+   
         }
     }
 }
