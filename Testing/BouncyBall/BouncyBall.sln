@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.489
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BouncyBall", "BouncyBall\BouncyBall.csproj", "{A6367D43-495D-4239-AB17-48A53BC632BA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A6367D43-495D-4239-AB17-48A53BC632BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6367D43-495D-4239-AB17-48A53BC632BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6367D43-495D-4239-AB17-48A53BC632BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6367D43-495D-4239-AB17-48A53BC632BA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F702B61C-89AC-4B93-B2D6-56324EAFB18E}
+	EndGlobalSection
+EndGlobal

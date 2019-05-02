@@ -69,8 +69,8 @@ namespace DrawingObjects
 
         private void Form1_MouseClick(object sender, MouseEventArgs e)
         {
-            Shape s = shapesList.Select(e.X, e.Y);
-            Invalidate();
+           // Shape s = shapesList.Select(e.X, e.Y);
+            //Invalidate();
         }
 
         private void Form1_MouseDown(object sender, MouseEventArgs e)
