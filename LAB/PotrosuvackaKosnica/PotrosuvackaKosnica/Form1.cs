@@ -16,8 +16,8 @@ namespace PotrosuvackaKosnica
         {
             InitializeComponent();
             this.Text = "Потрошувачка Кошница";
-            boxProducts.Items.Add(new Product("Produkt 1", "Cat 1", 150));
-            boxProducts.Items.Add(new Product("Produkt 2", "Cat 2", 250));
+            //boxProducts.Items.Add(new Product("Produkt 1", "Cat 1", 150));
+            //boxProducts.Items.Add(new Product("Produkt 2", "Cat 2", 250));
         }
 
         public void clearDetails()
@@ -40,12 +40,18 @@ namespace PotrosuvackaKosnica
 
         private void boxProducts_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(boxProducts.SelectedIndex != -1)
+            updateDisplay();
+        }
+
+        public void updateDisplay()
+        {
+            if (boxProducts.SelectedIndex != -1)
             {
-                Product product = (Product) boxProducts.SelectedItem;
+                Product product = (Product)boxProducts.SelectedItem;
                 txtName.Text = product.Name;
                 txtCateggory.Text = product.Category;
                 txtCena.Text = String.Format("{0:0.00}", product.price);
+                txtStock.Text = product.Stock.ToString();
             }
         }
 
@@ -77,14 +83,16 @@ namespace PotrosuvackaKosnica
 
         private void btnAddToCart_Click(object sender, EventArgs e)
         {
+            
             decimal amount = nudAmount.Value;
             Product selectedProduct = (Product) boxProducts.SelectedItem;
+            selectedProduct.Stock -= (int)amount;
             Boolean foundInList = false;
             foreach(ProductItem p in boxCart.Items)
             {
                 if (p.Product.Name.Equals(selectedProduct.Name))
                 {
-                    ProductItem newItem = new ProductItem(selectedProduct, p.Amount + amount);
+                    ProductItem newItem = new ProductItem(selectedProduct, p.Amount + amount, p.Stock);
                     boxCart.Items.Remove(p);
                     boxCart.Items.Add(newItem);
                     foundInList = true;
@@ -94,10 +102,25 @@ namespace PotrosuvackaKosnica
 
             if (!foundInList)
             {
-                ProductItem productItem = new ProductItem(selectedProduct, amount);
+                ProductItem productItem = new ProductItem(selectedProduct, amount, selectedProduct.Stock);
                 boxCart.Items.Add(productItem);
             }
+            updateDisplay();
             calculateTotal();
+        }
+
+        public void returnStock(ProductItem pi)
+        {
+            foreach(Product p in boxProducts.Items)
+            {
+                if (pi.Product.Name.Equals(p.Name))
+                {
+                    p.Stock += pi.Stock;
+                    updateDisplay();
+                    return;
+                }
+            }
+            
         }
 
         private void btnEmptyCartList_Click(object sender, EventArgs e)
@@ -105,8 +128,13 @@ namespace PotrosuvackaKosnica
             DialogResult result = MessageBox.Show("Дали сте сигурни дека сакате да ја испразните кошницата?", "Испразни ја кошницата", MessageBoxButtons.OKCancel);
             if(result == DialogResult.OK)
             {
+                foreach(ProductItem p in boxCart.Items)
+                {
+                    returnStock(p);
+                }
                 boxCart.Items.Clear();
             }
+            
             calculateTotal();
         }
 
@@ -118,6 +146,34 @@ namespace PotrosuvackaKosnica
 
             txtTotal.Text = String.Format("{0:0.00}", tot);
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nudAmount_Validating(object sender, CancelEventArgs e)
+        {
+            if (boxProducts.SelectedIndex == -1)
+                return;
+            Product selectedProduct = (Product)boxProducts.SelectedItem;
+            int amountToAdd = (int)nudAmount.Value;
+            if(amountToAdd > selectedProduct.Stock)
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(nudAmount, "Not enough in stock!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(nudAmount, null);
+            }
+        }
+
+        private void nudAmount_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public class Product
@@ -125,12 +181,14 @@ namespace PotrosuvackaKosnica
         public string Name { get; set; }
         public string Category { get; set; }
         public float price { get; set; }
+        public int Stock { get; set; }
 
-        public Product(string name, string category, float price)
+        public Product(string name, string category, float price, int stock)
         {
             this.Name = name;
             this.Category = category;
             this.price = price;
+            this.Stock = stock;
         }
 
         public override string ToString()
@@ -143,11 +201,13 @@ namespace PotrosuvackaKosnica
     {
         public Product Product { get; set; }
         public decimal Amount { get; set; }
+        public int Stock { get; set; }
 
-        public ProductItem(Product product, decimal amount)
+        public ProductItem(Product product, decimal amount, int Stock)
         {
             this.Product = product;
             this.Amount = amount;
+            this.Stock = Stock;
         }
 
         public float getTotalCostOfProduct()

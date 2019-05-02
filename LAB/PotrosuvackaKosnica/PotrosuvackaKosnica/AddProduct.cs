@@ -23,7 +23,8 @@ namespace PotrosuvackaKosnica
             string name = txtName.Text;
             string category = txtCategory.Text;
             float price = (float) Convert.ToDecimal(txtPrice.Text);
-            Product product = new Product(name, category, price);
+            int kolicina = Convert.ToInt32(txtKolicina.Text);
+            Product product = new Product(name, category, price, kolicina);
             this.addedProduct = product;
             this.DialogResult = DialogResult.OK;
             this.Close();
