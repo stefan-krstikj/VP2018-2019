@@ -16,8 +16,11 @@ namespace PotrosuvackaKosnica
         {
             InitializeComponent();
             this.Text = "Потрошувачка Кошница";
+<<<<<<< HEAD
             //boxProducts.Items.Add(new Product("Produkt 1", "Cat 1", 150));
             //boxProducts.Items.Add(new Product("Produkt 2", "Cat 2", 250));
+=======
+>>>>>>> 22cf8d96da0afec83abda567d1227eb712d39bf2
         }
 
         public void clearDetails()
@@ -85,6 +88,8 @@ namespace PotrosuvackaKosnica
         {
             
             decimal amount = nudAmount.Value;
+            if (boxProducts.SelectedIndex == -1)
+                return; 
             Product selectedProduct = (Product) boxProducts.SelectedItem;
             selectedProduct.Stock -= (int)amount;
             Boolean foundInList = false;
@@ -218,7 +223,7 @@ namespace PotrosuvackaKosnica
         public override string ToString()
         {
             return String.Format("{0} {1:0.0}x {2:0.0} = {3:0.00}", Product.Name, Amount, Product.price, Product.price * (float)Amount);
-
+   
         }
     }
 }
